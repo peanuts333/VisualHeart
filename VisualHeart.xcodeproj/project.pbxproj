@@ -16,6 +16,9 @@
 		CE0A99E12839D2480092EB30 /* VisualHeartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A99E02839D2480092EB30 /* VisualHeartTests.swift */; };
 		CE0A99EB2839D2480092EB30 /* VisualHeartUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A99EA2839D2480092EB30 /* VisualHeartUITests.swift */; };
 		CE0A99ED2839D2480092EB30 /* VisualHeartUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0A99EC2839D2480092EB30 /* VisualHeartUITestsLaunchTests.swift */; };
+		CE2A85D3283E5BB6004615E0 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A85D2283E5BB6004615E0 /* RecordViewController.swift */; };
+		CE2A85D5283E5FC4004615E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A85D4283E5FC4004615E0 /* MainViewController.swift */; };
+		CE2A85D7283E63EA004615E0 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A85D6283E63EA004615E0 /* HistoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		CE0A99E62839D2480092EB30 /* VisualHeartUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VisualHeartUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0A99EA2839D2480092EB30 /* VisualHeartUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualHeartUITests.swift; sourceTree = "<group>"; };
 		CE0A99EC2839D2480092EB30 /* VisualHeartUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualHeartUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE2A85D2283E5BB6004615E0 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		CE2A85D4283E5FC4004615E0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CE2A85D6283E63EA004615E0 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,9 @@
 				CE0A99D22839D2470092EB30 /* Assets.xcassets */,
 				CE0A99D42839D2470092EB30 /* LaunchScreen.storyboard */,
 				CE0A99D72839D2470092EB30 /* Info.plist */,
+				CE2A85D2283E5BB6004615E0 /* RecordViewController.swift */,
+				CE2A85D4283E5FC4004615E0 /* MainViewController.swift */,
+				CE2A85D6283E63EA004615E0 /* HistoryTableViewCell.swift */,
 			);
 			path = VisualHeart;
 			sourceTree = "<group>";
@@ -258,9 +267,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2A85D7283E63EA004615E0 /* HistoryTableViewCell.swift in Sources */,
 				CE0A99CE2839D2440092EB30 /* ViewController.swift in Sources */,
 				CE0A99CA2839D2440092EB30 /* AppDelegate.swift in Sources */,
 				CE0A99CC2839D2440092EB30 /* SceneDelegate.swift in Sources */,
+				CE2A85D3283E5BB6004615E0 /* RecordViewController.swift in Sources */,
+				CE2A85D5283E5FC4004615E0 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var date: UILabel!
+    @IBOutlet var todayWord: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
