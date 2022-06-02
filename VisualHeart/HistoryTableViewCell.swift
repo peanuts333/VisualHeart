@@ -8,6 +8,10 @@
 import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
+    
+    //ラベル設定
+    @IBOutlet var historyDate: UILabel!
+    @IBOutlet var historyText: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,32 +10,10 @@ import UIKit
 class RecordViewController: UIViewController {
     
     var alertController: UIAlertController!
+    
+    @IBOutlet var recordTextField: UITextField!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
-    
-    func alert(title:String, message:String) {
-            alertController = UIAlertController(title: title,
-                                       message: message,
-                                       preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK",
-                                           style: .default,
-                                           handler: nil))
-            present(alertController, animated: true)
-        }
-    
-    @IBAction func backButton(){
-        self.dismiss(animated: true, completion: nil)
-    }
-    @IBAction func finishButton(){
-        alert(title:"記録完了", message:"記録が完了しました。")
-        //self.dismiss(animated: true, completion: nil)
-        //self.performSegue(withIdentifier: "MainViewController", sender: nil)
-    }
-    
     @IBAction func redButton(){
         
     }
@@ -48,6 +26,66 @@ class RecordViewController: UIViewController {
     @IBAction func whiteButton(){
         
     }
+   
+    //テキストとして記録した内容を保存するメソッド
+    func recordText(){
+       
+        UserDefaults.standard.set(recordTextField.text,forKey: "TEXT")
+        UserDefaults.standard.string(forKey: "TEXT")
+        
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+    //アラートを表示するメソッド
+    func alert(title:String, message:String) {
+            alertController = UIAlertController(title: title,
+                                       message: message,
+                                       preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK",
+                                           style: .default,
+                                           handler: nil))
+            present(alertController, animated: true)
+        }
+    
+  
+    @IBAction func backButton(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func finishButton(){
+        
+       recordText()
+        //アラートの作成
+        let alert = UIAlertController(
+            title:"記録完了",
+            message:"記録が完了しました。",
+            preferredStyle: .alert
+        )
+   //アラートを表示する。
+        alert.addAction(UIAlertAction(
+            title: "OK",
+            style: .default,
+            handler: nil
+        ))
+        present(alert, animated: true, completion: nil)
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
+            }
+            }
+    
+    
+    
+    }
+    
+  
+    
+   
+  
     
 
     /*
@@ -60,4 +98,4 @@ class RecordViewController: UIViewController {
     }
     */
 
-}
+//}
