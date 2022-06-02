@@ -123,8 +123,8 @@
                                         </imageView>
                                     </subviews>
                                     <connections>
-                                        <outlet property="historyDate" destination="uD0-zv-5Hl" id="H9R-0Y-Ymh"/>
-                                        <outlet property="historyText" destination="8iQ-lI-YYv" id="cZ7-ai-LfA"/>
+                                        <outlet property="historyDateLabel" destination="uD0-zv-5Hl" id="ECP-J1-sae"/>
+                                        <outlet property="historyTextLabel" destination="8iQ-lI-YYv" id="QmG-sg-6Qn"/>
                                     </connections>
                                 </tableViewCellContentView>
                             </tableViewCell>
