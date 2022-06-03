@@ -9,13 +9,15 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     
-    let saveTextRecord = UserDefaults.standard
+    let textRecord = UserDefaults.standard
+    let colorRecord = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 70
+       // HistoryTableView.register(HistoryTableViewCell.self)
         
     //tableView
-        tableView.rowHeight = 70
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -23,7 +25,7 @@ class HistoryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     // MARK: - Table view data source
     
     //セクション数の指定
@@ -34,20 +36,17 @@ class HistoryTableViewController: UITableViewController {
     //セルの個数指定
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0 //textrecord.count
+        return 0//recordTextField.text.count
     }
     //セルの中身表示の仕方
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         as! HistoryTableViewCell
         
-      //  cell.historyTextLabel.text = String["TEXT"]
-        
-    
+//       cell.historyTextLabel.text =
     
         // Configure the cell...
-        
-
+       
         return cell
     }
     

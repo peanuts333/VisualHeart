@@ -10,24 +10,31 @@ import UIKit
 class RecordViewController: UIViewController {
     
     var alertController: UIAlertController!
+    var colorNumber: Int!
     
     @IBOutlet var recordTextField: UITextField!
+   
     
     let textRecord = UserDefaults.standard
+    let colorRecord = UserDefaults.standard
    
 
 
     @IBAction func redButton(){
-        var colorNumber = 0
+        colorNumber = 0
+        recordColor()
     }
     @IBAction func blueButton(){
-        var colorNumber = 1
+        colorNumber = 1
+        recordColor()
     }
     @IBAction func blackButton(){
-        var colorNumber = 2
+        colorNumber = 2
+        recordColor()
     }
     @IBAction func whiteButton(){
-        var colorNumber = 3
+        colorNumber = 3
+        recordColor()
     }
    
     //テキストとして記録した内容を保存するメソッド
@@ -39,6 +46,13 @@ class RecordViewController: UIViewController {
     }
     //色として記録した内容を保存するメソッド
     func recordColor(){
+        colorRecord.set(colorNumber, forKey: "NUMBER")
+        colorRecord.integer(forKey: "NUMBER")
+        colorRecord.synchronize()
+        print(colorNumber)
+        
+    }
+    func recordDate(){
         
     }
 
@@ -64,7 +78,9 @@ class RecordViewController: UIViewController {
     
     @IBAction func finishButton(){
         
-       recordText()
+        recordText()
+        recordColor()
+        recordDate()
         //アラートの作成
         let alert = UIAlertController(
             title:"記録完了",
