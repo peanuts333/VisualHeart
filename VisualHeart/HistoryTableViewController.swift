@@ -13,6 +13,8 @@ class HistoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    //tableView
         tableView.rowHeight = 70
 
         // Uncomment the following line to preserve selection between presentations
@@ -27,7 +29,7 @@ class HistoryTableViewController: UITableViewController {
     //セクション数の指定
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
     //セルの個数指定
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,7 +41,9 @@ class HistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         as! HistoryTableViewCell
         
-       // cell.historyTextLabel.text　=
+      //  cell.historyTextLabel.text = String["TEXT"]
+        
+    
     
         // Configure the cell...
         

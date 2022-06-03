@@ -12,9 +12,7 @@ class MainViewController: UIViewController, UITabBarDelegate{
     
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var todayWord: UILabel!
-    @IBOutlet weak var tabMenueBar: UITabBar!
     
-
     func getToday(format:String = "yyyy/MM/dd HH:mm:ss") -> String {
             let now = Date()
             let formatter = DateFormatter()

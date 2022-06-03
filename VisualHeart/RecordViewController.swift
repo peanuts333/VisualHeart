@@ -12,26 +12,33 @@ class RecordViewController: UIViewController {
     var alertController: UIAlertController!
     
     @IBOutlet var recordTextField: UITextField!
+    
+    let textRecord = UserDefaults.standard
+   
 
 
     @IBAction func redButton(){
-        
+        var colorNumber = 0
     }
     @IBAction func blueButton(){
-        
+        var colorNumber = 1
     }
     @IBAction func blackButton(){
-        
+        var colorNumber = 2
     }
     @IBAction func whiteButton(){
-        
+        var colorNumber = 3
     }
    
     //テキストとして記録した内容を保存するメソッド
     func recordText(){
-       
-        UserDefaults.standard.set(recordTextField.text,forKey: "TEXT")
-        UserDefaults.standard.string(forKey: "TEXT")
+        textRecord.set(recordTextField.text,forKey: "TEXT")
+        textRecord.string(forKey: "TEXT")
+        textRecord.synchronize()
+        print(recordTextField.text)
+    }
+    //色として記録した内容を保存するメソッド
+    func recordColor(){
         
     }
 

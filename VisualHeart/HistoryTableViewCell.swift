@@ -12,6 +12,7 @@ class HistoryTableViewCell: UITableViewCell {
     //ラベル設定
     @IBOutlet var historyDateLabel: UILabel!
     @IBOutlet var historyTextLabel: UILabel!
+    @IBOutlet var historyColorImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
