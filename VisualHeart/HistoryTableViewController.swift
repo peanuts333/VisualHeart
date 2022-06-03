@@ -39,7 +39,7 @@ class HistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         as! HistoryTableViewCell
         
-        cell.historyTextLabel.text　=
+       // cell.historyTextLabel.text　=
     
         // Configure the cell...
         
