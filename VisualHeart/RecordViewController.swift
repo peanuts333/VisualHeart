@@ -10,51 +10,42 @@ import UIKit
 class RecordViewController: UIViewController {
     
     var alertController: UIAlertController!
-    var colorNumber: Int!
+    var colorNumber: Int?
     
     @IBOutlet var recordTextField: UITextField!
    
-    
-    let textRecord = UserDefaults.standard
-    let colorRecord = UserDefaults.standard
+    let ud = UserDefaults.standard
    
-
-
+    
     @IBAction func redButton(){
         colorNumber = 0
-        recordColor()
     }
     @IBAction func blueButton(){
         colorNumber = 1
-        recordColor()
     }
     @IBAction func blackButton(){
         colorNumber = 2
-        recordColor()
     }
     @IBAction func whiteButton(){
         colorNumber = 3
-        recordColor()
     }
-   
-    //テキストとして記録した内容を保存するメソッド
-    func recordText(){
-        textRecord.set(recordTextField.text,forKey: "TEXT")
-        textRecord.string(forKey: "TEXT")
-        textRecord.synchronize()
-        print(recordTextField.text)
-    }
-    //色として記録した内容を保存するメソッド
-    func recordColor(){
-        colorRecord.set(colorNumber, forKey: "NUMBER")
-        colorRecord.integer(forKey: "NUMBER")
-        colorRecord.synchronize()
-        print(colorNumber)
+    
+    func saveRecord() {
+        let recordText = recordTextField.text
+        var colorNumberStr = ""
+        if let number = colorNumber {
+            colorNumberStr = String(number)
+        }
         
+        if recordText != "" || colorNumber != nil {
+            var recordArray = ud.array(forKey: "ARRAY") as? [[String]] ?? [] // 記録されてる配列を取得 [["あいうえお", "1"]]
+            let record = [recordText ?? "", colorNumberStr]
+            recordArray.append(record) // 記録されてる配列に今回の記録を追加 [["あいうえお", "1"], ["かきくけこ", "2"]]
+            ud.set(recordArray, forKey: "ARRAY")
+        }
     }
-    func recordDate(){
-        
-    }
+
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,10 +68,7 @@ class RecordViewController: UIViewController {
     }
     
     @IBAction func finishButton(){
-        
-        recordText()
-        recordColor()
-        recordDate()
+    
         //アラートの作成
         let alert = UIAlertController(
             title:"記録完了",

@@ -9,21 +9,30 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     
-    let textRecord = UserDefaults.standard
-    let colorRecord = UserDefaults.standard
-
+    let ud = UserDefaults.standard
+    
+    var recordArray:[[String]] = []
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 70
        // HistoryTableView.register(HistoryTableViewCell.self)
         
-    //tableView
-
+//tableView
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getRecord()
+    }
+    
+    func getRecord() {
+        recordArray = ud.array(forKey: "ARRAY") as? [[String]] ?? []
+        tableView.reloadData() // TableViewのリロード
     }
     
     // MARK: - Table view data source
@@ -36,18 +45,35 @@ class HistoryTableViewController: UITableViewController {
     //セルの個数指定
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0//recordTextField.text.count
+        return recordArray.count
     }
     //セルの中身表示の仕方
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         as! HistoryTableViewCell
         
-//       cell.historyTextLabel.text =
-    
-        // Configure the cell...
-       
+        // [["あいうえお", "1"], ["かきくけこ", "2"], ["さしすせそ", "1"]]
+        let record = recordArray[indexPath.row]
+        let text = record[0] // あいうえお
+        let color = record[1] // "1"
+        cell.historyTextLabel.text = text
+        
+        // 🔍Switch文 if文の上位互換
+        switch color {
+        case "0":
+            cell.historyColorImageView.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1) // alphaは、透明度
+        case "1":
+            cell.historyColorImageView.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1) // alphaは、透明度
+        case "2":
+            cell.historyColorImageView.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1) // alphaは、透明度
+        case "3":
+            cell.historyColorImageView.backgroundColor = UIColor(red: 1, green: 0, blue: 1, alpha: 1) // alphaは、透明度
+        default:
+            break
+        }
         return cell
+        // Configure the cell...
+  
     }
     
     //*/
