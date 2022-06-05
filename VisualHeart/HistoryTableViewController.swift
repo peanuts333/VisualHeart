@@ -12,6 +12,13 @@ class HistoryTableViewController: UITableViewController {
     let ud = UserDefaults.standard
     
     var recordArray:[[String]] = []
+    
+    func getToday(format:String = "yyyy/MM/dd HH:mm:ss") -> String {
+            let now = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = format
+            return formatter.string(from: now as Date)
+        }
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +39,10 @@ class HistoryTableViewController: UITableViewController {
     
     func getRecord() {
         recordArray = ud.array(forKey: "ARRAY") as? [[String]] ?? []
+        recordArray.reverse()
         tableView.reloadData() // TableViewのリロード
     }
+    
     
     // MARK: - Table view data source
     
@@ -47,6 +56,7 @@ class HistoryTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return recordArray.count
     }
+    
     //セルの中身表示の仕方
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
@@ -57,22 +67,24 @@ class HistoryTableViewController: UITableViewController {
         let text = record[0] // あいうえお
         let color = record[1] // "1"
         cell.historyTextLabel.text = text
-        
+        cell.historyDateLabel.text = getToday(format: "MM月dd日")//記録日時を表示
+         
         // 🔍Switch文 if文の上位互換
         switch color {
         case "0":
-            cell.historyColorImageView.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1) // alphaは、透明度
+            cell.historyColorImageView.backgroundColor = UIColor(red: 0.85, green: 0.40, blue: 0.37, alpha: 1) // alphaは、透明度
         case "1":
-            cell.historyColorImageView.backgroundColor = UIColor(red: 0, green: 1, blue: 0, alpha: 1) // alphaは、透明度
+            cell.historyColorImageView.backgroundColor = UIColor(red: 0.415, green: 0.588, blue: 0.964, alpha: 1) // alphaは、透明度
         case "2":
-            cell.historyColorImageView.backgroundColor = UIColor(red: 0, green: 0, blue: 1, alpha: 1) // alphaは、透明度
+            cell.historyColorImageView.backgroundColor = UIColor(red: 0.349, green: 0.349, blue: 0.349, alpha: 1) // alphaは、透明度
         case "3":
-            cell.historyColorImageView.backgroundColor = UIColor(red: 1, green: 0, blue: 1, alpha: 1) // alphaは、透明度
+            cell.historyColorImageView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1) // alphaは、透明度
         default:
             break
         }
         return cell
         // Configure the cell...
+        
   
     }
     

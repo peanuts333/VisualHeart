@@ -25,7 +25,6 @@ class MainViewController: UIViewController, UITabBarDelegate{
         super.viewDidLoad()
         
         dateLabel.text = getToday(format: "今日はMM月dd日")
-    
 
         // Do any additional setup after loading the view.
     }

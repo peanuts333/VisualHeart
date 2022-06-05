@@ -20,15 +20,21 @@ class RecordViewController: UIViewController {
     @IBAction func redButton(){
         colorNumber = 0
     }
+    
     @IBAction func blueButton(){
         colorNumber = 1
     }
+    
     @IBAction func blackButton(){
         colorNumber = 2
+        
     }
     @IBAction func whiteButton(){
         colorNumber = 3
+       
     }
+    
+   
     
     func saveRecord() {
         let recordText = recordTextField.text
@@ -44,6 +50,12 @@ class RecordViewController: UIViewController {
             ud.set(recordArray, forKey: "ARRAY")
         }
     }
+    func getToday(format:String = "yyyy/MM/dd HH:mm:ss") -> String {
+            let now = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = format
+            return formatter.string(from: now as Date)
+        }
 
   
 
@@ -68,6 +80,8 @@ class RecordViewController: UIViewController {
     }
     
     @IBAction func finishButton(){
+        
+        saveRecord()
     
         //アラートの作成
         let alert = UIAlertController(
