@@ -13,6 +13,8 @@ class MainViewController: UIViewController, UITabBarDelegate{
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var todayWord: UILabel!
     
+   
+    
     func getToday(format:String = "yyyy/MM/dd HH:mm:ss") -> String {
             let now = Date()
             let formatter = DateFormatter()
@@ -23,7 +25,6 @@ class MainViewController: UIViewController, UITabBarDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         dateLabel.text = getToday(format: "今日はMM月dd日")
 
         // Do any additional setup after loading the view.

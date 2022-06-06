@@ -31,6 +31,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <real key="value" value="162.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-Bj-Mcc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -47,6 +53,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="143"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mQf-p2-SO5">
                                 <rect key="frame" x="0.0" y="44" width="415" height="44"/>
@@ -77,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-368" y="-548"/>
+            <point key="canvasLocation" x="-368.11594202898556" y="-548.4375"/>
         </scene>
         <!--履歴-->
         <scene sceneID="giK-og-fu2">
@@ -148,7 +160,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="redButton" destination="vQt-qe-pPs" eventType="touchUpInside" id="NtN-Su-XCa"/>
+                                    <action selector="redButtonTapped" destination="vQt-qe-pPs" eventType="touchUpInside" id="c2z-R4-tcE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wrc-nc-QvE">
@@ -158,7 +170,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="whiteButton" destination="vQt-qe-pPs" eventType="touchUpInside" id="6eN-c9-5Sr"/>
+                                    <action selector="whiteButtonTapped" destination="vQt-qe-pPs" eventType="touchUpInside" id="ohe-V0-Rbl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="色で記録" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYt-YW-bXN">
@@ -206,7 +218,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="blackButton" destination="vQt-qe-pPs" eventType="touchUpInside" id="kMo-ZT-DP0"/>
+                                    <action selector="blackButtonTapped" destination="vQt-qe-pPs" eventType="touchUpInside" id="nv4-LK-pwp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWL-yb-Uem">
@@ -216,7 +228,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <action selector="blueButton" destination="vQt-qe-pPs" eventType="touchUpInside" id="zia-To-Yux"/>
+                                    <action selector="blueButtonTapped" destination="vQt-qe-pPs" eventType="touchUpInside" id="cdi-ss-zrT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -225,7 +237,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="RDn-29-zEs"/>
                     <connections>
+                        <outlet property="blackButton" destination="PUQ-1z-YhH" id="Qgm-kt-ZHT"/>
+                        <outlet property="blueButton" destination="tWL-yb-Uem" id="bbI-l3-CcD"/>
                         <outlet property="recordTextField" destination="hzw-eE-Cvg" id="Swg-i6-sEt"/>
+                        <outlet property="redButton" destination="JYW-eQ-4Zz" id="YEf-EM-8g1"/>
+                        <outlet property="whiteButton" destination="wrc-nc-QvE" id="zCN-f0-bjr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPS-Wb-nvb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

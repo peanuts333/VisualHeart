@@ -13,24 +13,43 @@ class RecordViewController: UIViewController {
     var colorNumber: Int?
     
     @IBOutlet var recordTextField: UITextField!
-   
+    @IBOutlet var redButton: UIButton!
+    @IBOutlet var blueButton: UIButton!
+    @IBOutlet var blackButton: UIButton!
+    @IBOutlet var whiteButton: UIButton!
+    
+   //選択ボタンを丸くする設定
+    func buttonLayout(){
+        redButton.layer.cornerRadius = 30
+        blueButton.layer.cornerRadius = 30
+        blackButton.layer.cornerRadius = 30
+        whiteButton.layer.cornerRadius = 30
+    }
+    
     let ud = UserDefaults.standard
+
    
-    
-    @IBAction func redButton(){
+    @IBAction func redButtonTapped(){
         colorNumber = 0
+        redButton.layer.borderWidth = 5.0
+        redButton.layer.borderColor = UIColor.black.cgColor
     }
     
-    @IBAction func blueButton(){
+    @IBAction func blueButtonTapped(){
         colorNumber = 1
+        blueButton.layer.borderWidth = 5.0
+        blueButton.layer.borderColor = UIColor.black.cgColor
     }
     
-    @IBAction func blackButton(){
+    @IBAction func blackButtonTapped(){
         colorNumber = 2
-        
+        blackButton.layer.borderWidth = 5.0
+        blackButton.layer.borderColor = UIColor.black.cgColor
     }
-    @IBAction func whiteButton(){
+    @IBAction func whiteButtonTapped(){
         colorNumber = 3
+        whiteButton.layer.borderWidth = 5.0
+        whiteButton.layer.borderColor = UIColor.black.cgColor
        
     }
     
@@ -61,6 +80,7 @@ class RecordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonLayout()
         // Do any additional setup after loading the view.
     }
     //アラートを表示するメソッド
