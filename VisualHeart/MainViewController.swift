@@ -11,7 +11,7 @@ class MainViewController: UIViewController, UITabBarDelegate{
     
     
     @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var todayWord: UILabel!
+    @IBOutlet var todayWordLabel: UILabel!
     
    
     
@@ -21,15 +21,20 @@ class MainViewController: UIViewController, UITabBarDelegate{
             formatter.dateFormat = format
             return formatter.string(from: now as Date)
         }
+    
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         dateLabel.text = getToday(format: "今日はMM月dd日")
-
+        
+        //今日のことばをランダムで表示
+        let todayWord = ["あいうえお","かきくけこ","さしすせそ"] //今は適当なことば
+        let r = Int(arc4random()) % todayWord.count
+        todayWordLabel.text = todayWord[r]
         // Do any additional setup after loading the view.
     }
-
+    
     
 
     /*
