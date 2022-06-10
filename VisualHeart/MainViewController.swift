@@ -59,7 +59,7 @@ class MainViewController: UIViewController, UITabBarDelegate{
             //日付が変わった時の処理をここに書く
             let todayWord = ["やらない後悔よりやる後悔",
                              "休息も大切",
-                             "頑張れ！",
+                             "笑顔を大切に",
                              "いつもお疲れさま",
                              "毎日生きててえらい",
                              "努力は必ず報われる",
@@ -74,7 +74,7 @@ class MainViewController: UIViewController, UITabBarDelegate{
         }
         else {
             //日付が変わっていない時の処理をここに書く
-            todayWordLabel.text = String("変更なし")
+            
         }
     }
     
@@ -82,14 +82,6 @@ class MainViewController: UIViewController, UITabBarDelegate{
         super.viewDidLoad()
         dateLabel.text = getToday(format: "今日はMM月dd日")
         judgeDate()
-        
-//        let todayWord = ["やらない後悔よりやる後悔",
-//                         "休息も大切",
-//                         "頑張れ！",
-//                         "あいうえお",]
-//        let r = Int(arc4random()) % todayWord.count
-//        todayWordLabel.text = String(todayWord[r])
-//        print(todayWord[r])
         
         //Do any additional setup after loading the view.
     }
