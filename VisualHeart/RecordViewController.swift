@@ -133,30 +133,33 @@ class RecordViewController: UIViewController {
     @IBAction func finishButtonTapped(){
         
         saveRecord()
-    
+        
         //アラートの作成
         let alert = UIAlertController(
+            
             title:"記録完了",
             message:"記録が完了しました。",
             preferredStyle: .alert
+          
         )
-   //アラートを表示する。
+        
+        //アラートを表示する。
         alert.addAction(UIAlertAction(
             title: "OK",
             style: .default,
             handler: nil
         ))
         present(alert, animated: true, completion: nil)
-       
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.dismiss(animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
-            }
-            }
-    
-    
-    
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+//            self.dismiss(animated: true, completion: nil)
+            //self.dismiss(animated: true, completion: nil)
+        }
     }
+    
+    
+    
+  //  }
     
   
     

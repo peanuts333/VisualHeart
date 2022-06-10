@@ -23,6 +23,7 @@ class HistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 70
+        //tableView.rowHeight = UITableView.automaticDimension
        // HistoryTableView.register(HistoryTableViewCell.self)
         
 //tableView
@@ -60,7 +61,10 @@ class HistoryTableViewController: UITableViewController {
     //セルの中身表示の仕方
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+
         as! HistoryTableViewCell
+        
+       
         
         // [["あいうえお", "1"], ["かきくけこ", "2"], ["さしすせそ", "1"]]
         let record = recordArray[indexPath.row]
@@ -82,6 +86,7 @@ class HistoryTableViewController: UITableViewController {
         default:
             break
         }
+        cell.textLabel?.numberOfLines=0
         return cell
         // Configure the cell...
         
