@@ -17,6 +17,7 @@ class RecordViewController: UIViewController {
     @IBOutlet var blueButton: UIButton!
     @IBOutlet var blackButton: UIButton!
     @IBOutlet var whiteButton: UIButton!
+    @IBOutlet var deleteButton: UIButton!
     
    //選択ボタンを丸くする設定
     func buttonLayout(){
@@ -33,24 +34,44 @@ class RecordViewController: UIViewController {
         colorNumber = 0
         redButton.layer.borderWidth = 5.0
         redButton.layer.borderColor = UIColor.black.cgColor
+        
+        blueButton.layer.borderWidth = 0
+        blackButton.layer.borderWidth = 0
+        whiteButton.layer.borderWidth = 0
     }
     
     @IBAction func blueButtonTapped(){
         colorNumber = 1
         blueButton.layer.borderWidth = 5.0
         blueButton.layer.borderColor = UIColor.black.cgColor
+        
+        redButton.layer.borderWidth = 0
+        blackButton.layer.borderWidth = 0
+        whiteButton.layer.borderWidth = 0
     }
     
     @IBAction func blackButtonTapped(){
         colorNumber = 2
         blackButton.layer.borderWidth = 5.0
         blackButton.layer.borderColor = UIColor.black.cgColor
+        
+        blueButton.layer.borderWidth = 0
+        redButton.layer.borderWidth = 0
+        whiteButton.layer.borderWidth = 0
     }
     @IBAction func whiteButtonTapped(){
         colorNumber = 3
         whiteButton.layer.borderWidth = 5.0
         whiteButton.layer.borderColor = UIColor.black.cgColor
+        
+        blueButton.layer.borderWidth = 0
+        blackButton.layer.borderWidth = 0
+        redButton.layer.borderWidth = 0
        
+    }
+    
+    @IBAction func deleteButtonTapped(){
+        recordTextField.text = ""
     }
     
    
@@ -69,6 +90,7 @@ class RecordViewController: UIViewController {
             ud.set(recordArray, forKey: "ARRAY")
         }
     }
+    
     func getToday(format:String = "yyyy/MM/dd HH:mm:ss") -> String {
             let now = Date()
             let formatter = DateFormatter()
@@ -81,12 +103,21 @@ class RecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonLayout()
+        
+        let border = CALayer()
+        let width = CGFloat(2.0)
+        
+        border.borderColor = UIColor.gray.cgColor
+        border.frame = CGRect(x: 0, y: recordTextField.frame.size.height - width, width:  recordTextField.frame.size.width, height: 1)
+        border.borderWidth = width
+        
+        recordTextField.layer.addSublayer(border)
         // Do any additional setup after loading the view.
     }
     //アラートを表示するメソッド
     func alert(title:String, message:String) {
-            alertController = UIAlertController(title: title,
-                                       message: message,
+        alertController = UIAlertController(title: title,
+                                            message: message,
                                        preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK",
                                            style: .default,
@@ -95,11 +126,11 @@ class RecordViewController: UIViewController {
         }
     
   
-    @IBAction func backButton(){
+    @IBAction func backButtonTapped(){
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func finishButton(){
+    @IBAction func finishButtonTapped(){
         
         saveRecord()
     
