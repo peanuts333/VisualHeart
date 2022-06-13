@@ -58,16 +58,17 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 
         as! HistoryTableViewCell
         
-       
-        
         // [["あいうえお", "1"], ["かきくけこ", "2"], ["さしすせそ", "1"]]
+        
         let record = recordArray[indexPath.row]
         
         let text = record[0] // あいうえお
         let color = record[1] // "1"
+        let date = record[2]
         cell.historyTextLabel.text = text
-        
-        //(format: "MM月dd日")//記録日時を表示
+        cell.historyDateLabel.text = date
+        print(record.count)
+        //cell.historyDateLabel.text = record[2]
          
         // 🔍Switch文 if文の上位互換
         switch color {

@@ -77,9 +77,9 @@ class RecordViewController: UIViewController {
 
     func saveRecord() {
         
-//        let date = Date()
-//        let df = DateFormatter()
-//        df.dateFormat = "MM月dd日"
+        let date = Date()
+        let df = DateFormatter()
+        df.dateFormat = "MM月dd日"
         
         let recordText = recordTextField.text
         var colorNumberStr = ""
@@ -88,14 +88,25 @@ class RecordViewController: UIViewController {
         }
         
         if recordText != "" || colorNumber != nil {
-            var recordArray = ud.array(forKey: "ARRAY") as? [[String]] ?? []// 記録されてる配列を取得 [["あいうえお", "1"]]
-            let record = [recordText ?? "", colorNumberStr]
+            var recordArray = ud.array(forKey: "ARRAY") as? [[String]] ?? []
+            // 記録されてる配列を取得 [["あいうえお", "1"]]
+            var record = [recordText ?? "", colorNumberStr]
+            record.append(contentsOf: [df.string(from: date)])
             recordArray.append(record) // 記録されてる配列に今回の記録を追加 [["あいうえお", "1"], ["かきくけこ", "2"]]
             ud.set(recordArray, forKey: "ARRAY")
+            print(recordArray.count)
+            
         }
     }
+    
+//    func removeUserDefaults() {
+//        let appDomain = Bundle.main.bundleIdentifier
+//        UserDefaults.standard.removePersistentDomain(forName: appDomain!)
+//    }
 
     override func viewDidLoad() {
+        
+        //removeUserDefaults()
         
         super.viewDidLoad()
         buttonLayout()
@@ -138,6 +149,21 @@ class RecordViewController: UIViewController {
         redButton.layer.borderWidth = 0
         
         //アラートの作成
+        if recordTextField.text == "" && colorNumber == nil{
+            let alert = UIAlertController(
+                title:"エラー",
+                message:"記録がありません。",
+                preferredStyle: .alert
+              
+            )
+            //アラートを表示する。
+            alert.addAction(UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil
+            ))
+            present(alert, animated: true, completion: nil)
+        } else {
         let alert = UIAlertController(
             
             title:"記録完了",
@@ -145,14 +171,22 @@ class RecordViewController: UIViewController {
             preferredStyle: .alert
           
         )
+            //アラートを表示する。
+            alert.addAction(UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil
+            ))
+            present(alert, animated: true, completion: nil)
+        }
         
-        //アラートを表示する。
-        alert.addAction(UIAlertAction(
-            title: "OK",
-            style: .default,
-            handler: nil
-        ))
-        present(alert, animated: true, completion: nil)
+//        //アラートを表示する。
+//        alert.addAction(UIAlertAction(
+//            title: "OK",
+//            style: .default,
+//            handler: nil
+//        ))
+//        present(alert, animated: true, completion: nil)
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 //            self.dismiss(animated: true, completion: nil)
