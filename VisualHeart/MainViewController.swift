@@ -13,7 +13,7 @@ class MainViewController: UIViewController, UITabBarDelegate{
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var todayWordLabel: UILabel!
     
-   
+   //今日の日付
     func getToday(format:String = "yyyy/MM/dd HH:mm:ss") -> String {
             let now = Date()
             let formatter = DateFormatter()
@@ -63,7 +63,7 @@ class MainViewController: UIViewController, UITabBarDelegate{
                              "いつもお疲れさま",
                              "毎日生きててえらい",
                              "努力は必ず報われる",
-                             "もう一踏ん張り",
+                             "もう一踏ん張り!",
                              "良いことは必ず起こる",
                              "善い行動は必ず自分に返ってくる",
                              "今日がいい日になりますように",]
@@ -83,9 +83,14 @@ class MainViewController: UIViewController, UITabBarDelegate{
         dateLabel.text = getToday(format: "今日はMM月dd日")
         judgeDate()
         
+//        let date = Date()
+//
+//        let df = DateFormatter()
+//
+//        df.dateFormat = "yyyy-MM-dd "
+//        print(df.string(from: date))
         //Do any additional setup after loading the view.
     }
-    
     
     
     /*

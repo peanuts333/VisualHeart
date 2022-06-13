@@ -19,7 +19,7 @@ class RecordViewController: UIViewController {
     @IBOutlet var whiteButton: UIButton!
     @IBOutlet var deleteButton: UIButton!
     
-   //選択ボタンを丸くする設定
+   //選択ボタンに枠をつける
     func buttonLayout(){
         redButton.layer.cornerRadius = 30
         blueButton.layer.cornerRadius = 30
@@ -74,9 +74,13 @@ class RecordViewController: UIViewController {
         recordTextField.text = ""
     }
     
-   
-    
+
     func saveRecord() {
+        
+//        let date = Date()
+//        let df = DateFormatter()
+//        df.dateFormat = "MM月dd日"
+        
         let recordText = recordTextField.text
         var colorNumberStr = ""
         if let number = colorNumber {
@@ -84,23 +88,15 @@ class RecordViewController: UIViewController {
         }
         
         if recordText != "" || colorNumber != nil {
-            var recordArray = ud.array(forKey: "ARRAY") as? [[String]] ?? [] // 記録されてる配列を取得 [["あいうえお", "1"]]
+            var recordArray = ud.array(forKey: "ARRAY") as? [[String]] ?? []// 記録されてる配列を取得 [["あいうえお", "1"]]
             let record = [recordText ?? "", colorNumberStr]
             recordArray.append(record) // 記録されてる配列に今回の記録を追加 [["あいうえお", "1"], ["かきくけこ", "2"]]
             ud.set(recordArray, forKey: "ARRAY")
         }
     }
-    
-    func getToday(format:String = "yyyy/MM/dd HH:mm:ss") -> String {
-            let now = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = format
-            return formatter.string(from: now as Date)
-        }
-
-  
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         buttonLayout()
         
@@ -112,6 +108,7 @@ class RecordViewController: UIViewController {
         border.borderWidth = width
         
         recordTextField.layer.addSublayer(border)
+        
         // Do any additional setup after loading the view.
     }
     //アラートを表示するメソッド
@@ -132,7 +129,13 @@ class RecordViewController: UIViewController {
     
     @IBAction func finishButtonTapped(){
         
+        
         saveRecord()
+        recordTextField.text = ""
+        blackButton.layer.borderWidth = 0
+        whiteButton.layer.borderWidth = 0
+        blueButton.layer.borderWidth = 0
+        redButton.layer.borderWidth = 0
         
         //アラートの作成
         let alert = UIAlertController(

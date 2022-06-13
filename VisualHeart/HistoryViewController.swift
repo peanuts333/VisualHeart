@@ -1,15 +1,15 @@
 //
-//  HistoryTableViewController.swift
+//  ViewController.swift
 //  VisualHeart
 //
-//  Created by user on 2022/06/01.
+//  Created by user on 2022/05/22.
 //
 
 import UIKit
 
-class HistoryTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var HistryTableView: UITableView!//
+class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
+    @IBOutlet weak var HistoryTableView: UITableView!
     
     let ud = UserDefaults.standard
     
@@ -17,7 +17,7 @@ class HistoryTableViewController: UIViewController, UITableViewDelegate, UITable
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.rowHeight = 70
+        HistoryTableView.rowHeight = 70
         //tableView.rowHeight = UITableView.automaticDimension
        // HistoryTableView.register(HistoryTableViewCell.self)
         
@@ -36,26 +36,23 @@ class HistoryTableViewController: UIViewController, UITableViewDelegate, UITable
     func getRecord() {
         recordArray = ud.array(forKey: "ARRAY") as? [[String]] ?? []
         recordArray.reverse()
-        //tableView.reloadData() // TableViewのリロード
+        HistoryTableView.reloadData() // TableViewのリロード
     }
     
     // MARK: - Table view data source
     
     //セクション数の指定
-    //override
      func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     //セルの個数指定
-    //override
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return recordArray.count
     }
     
     //セルの中身表示の仕方
-    //override
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
@@ -65,11 +62,11 @@ class HistoryTableViewController: UIViewController, UITableViewDelegate, UITable
         
         // [["あいうえお", "1"], ["かきくけこ", "2"], ["さしすせそ", "1"]]
         let record = recordArray[indexPath.row]
-        //let date = record[0]
+        
         let text = record[0] // あいうえお
         let color = record[1] // "1"
         cell.historyTextLabel.text = text
-        //cell.historyDateLabel.text = String(date)
+        
         //(format: "MM月dd日")//記録日時を表示
          
         // 🔍Switch文 if文の上位互換
@@ -110,7 +107,7 @@ class HistoryTableViewController: UIViewController, UITableViewDelegate, UITable
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -140,3 +137,5 @@ class HistoryTableViewController: UIViewController, UITableViewDelegate, UITable
     */
 
 }
+
+   
