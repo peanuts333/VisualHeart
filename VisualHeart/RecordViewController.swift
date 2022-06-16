@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecordViewController: UIViewController {
+class RecordViewController: UIViewController,UITextFieldDelegate {
     
     var alertController: UIAlertController!
     var colorNumber: Int?
@@ -29,7 +29,6 @@ class RecordViewController: UIViewController {
     
     let ud = UserDefaults.standard
 
-   
     @IBAction func redButtonTapped(){
         colorNumber = 0
         redButton.layer.borderWidth = 5.0
@@ -59,6 +58,7 @@ class RecordViewController: UIViewController {
         redButton.layer.borderWidth = 0
         whiteButton.layer.borderWidth = 0
     }
+    
     @IBAction func whiteButtonTapped(){
         colorNumber = 3
         whiteButton.layer.borderWidth = 5.0
@@ -92,12 +92,16 @@ class RecordViewController: UIViewController {
             // 記録されてる配列を取得 [["あいうえお", "1"]]
             var record = [recordText ?? "", colorNumberStr]
             record.append(contentsOf: [df.string(from: date)])
-            recordArray.append(record) // 記録されてる配列に今回の記録を追加 [["あいうえお", "1"], ["かきくけこ", "2"]]
+            recordArray.append(record)
             ud.set(recordArray, forKey: "ARRAY")
-            print(recordArray.count)
             
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            recordTextField.resignFirstResponder()
+            return true
+        }
     
 //    func removeUserDefaults() {
 //        let appDomain = Bundle.main.bundleIdentifier
@@ -110,6 +114,7 @@ class RecordViewController: UIViewController {
         
         super.viewDidLoad()
         buttonLayout()
+        recordTextField.delegate = self
         
         let border = CALayer()
         let width = CGFloat(2.0)
@@ -122,7 +127,7 @@ class RecordViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-    //アラートを表示するメソッド
+    
     func alert(title:String, message:String) {
         alertController = UIAlertController(title: title,
                                             message: message,
@@ -140,19 +145,17 @@ class RecordViewController: UIViewController {
     
     @IBAction func finishButtonTapped(){
         
-        
         saveRecord()
-        recordTextField.text = ""
         blackButton.layer.borderWidth = 0
         whiteButton.layer.borderWidth = 0
         blueButton.layer.borderWidth = 0
         redButton.layer.borderWidth = 0
-        
+       
         //アラートの作成
-        if recordTextField.text == "" && colorNumber == nil{
+        if recordTextField.text != "" || colorNumber != nil{
             let alert = UIAlertController(
-                title:"エラー",
-                message:"記録がありません。",
+                title:"記録完了",
+                message:"記録が完了しました。",
                 preferredStyle: .alert
               
             )
@@ -166,8 +169,8 @@ class RecordViewController: UIViewController {
         } else {
         let alert = UIAlertController(
             
-            title:"記録完了",
-            message:"記録が完了しました。",
+            title:"エラー",
+            message:"記録がありません。",
             preferredStyle: .alert
           
         )
@@ -180,18 +183,22 @@ class RecordViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         }
         
-//        //アラートを表示する。
-//        alert.addAction(UIAlertAction(
-//            title: "OK",
-//            style: .default,
-//            handler: nil
-//        ))
-//        present(alert, animated: true, completion: nil)
+        recordTextField.text = ""
+        colorNumber = nil
+        
+        //        //アラートを表示する。
+        //        alert.addAction(UIAlertAction(
+        //            title: "OK",
+        //            style: .default,
+        //            handler: nil
+        //        ))
+        //        present(alert, animated: true, completion: nil)
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 //            self.dismiss(animated: true, completion: nil)
             //self.dismiss(animated: true, completion: nil)
         }
+    
     }
     
     

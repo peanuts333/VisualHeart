@@ -80,6 +80,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
             cell.historyColorImageView.backgroundColor = UIColor(red: 0.349, green: 0.349, blue: 0.349, alpha: 1) // alphaは、透明度
         case "3":
             cell.historyColorImageView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1) // alphaは、透明度
+            cell.historyColorImageView.layer.borderWidth = 0.5
         default:
             break
         }
@@ -88,6 +89,16 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         // Configure the cell...
         
   
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            recordArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        UserDefaults.standard.set(recordArray, forKey: "ARRAY" )
+
     }
     
     //*/

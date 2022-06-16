@@ -22,9 +22,9 @@ class MainViewController: UIViewController, UITabBarDelegate{
     }
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        labelLayout()
         dateLabel.text = getToday(format: "今日はMM月dd日")
         
         let todayWord = ["やらない後悔よりやる後悔",
