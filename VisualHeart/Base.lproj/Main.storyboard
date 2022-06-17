@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -172,53 +171,43 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5Kw-j4-K4l">
-                                                    <rect key="frame" x="0.0" y="5" width="414" height="50"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7n-oy-9mi">
-                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="ESL-NG-g0x"/>
-                                                                <constraint firstAttribute="width" constant="70" id="r78-DJ-MHV"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7H-6X-PIS">
-                                                            <rect key="frame" x="78" y="0.0" width="278" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="150" id="jz6-oS-q2f"/>
-                                                                <constraint firstAttribute="height" constant="50" id="p2n-a8-3M1"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ifl-Vl-MGu" userLabel="History Color Image View">
-                                                            <rect key="frame" x="364" y="0.0" width="50" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="ifl-Vl-MGu" secondAttribute="height" multiplier="1:1" id="NRT-F0-N4V"/>
-                                                                <constraint firstAttribute="width" constant="50" id="NXJ-2i-hgg"/>
-                                                                <constraint firstAttribute="height" constant="50" id="dqg-su-fb0"/>
-                                                            </constraints>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                    <integer key="value" value="25"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
-                                                            </userDefinedRuntimeAttributes>
-                                                        </imageView>
-                                                    </subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7n-oy-9mi">
+                                                    <rect key="frame" x="5" y="23" width="60" height="14.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="ifl-Vl-MGu" secondAttribute="trailing" id="Qug-O2-KzC"/>
+                                                        <constraint firstAttribute="width" constant="60" id="8Pr-G0-1M7"/>
                                                     </constraints>
-                                                </stackView>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ifl-Vl-MGu" userLabel="History Color Image View">
+                                                    <rect key="frame" x="359" y="5" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="M7i-c9-i9t"/>
+                                                        <constraint firstAttribute="height" constant="50" id="Z3N-C9-5GI"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7H-6X-PIS">
+                                                    <rect key="frame" x="70" y="23" width="284" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5Kw-j4-K4l" firstAttribute="centerY" secondItem="Jc4-MG-HPT" secondAttribute="centerY" id="6DS-yL-xKz"/>
-                                                <constraint firstAttribute="trailing" secondItem="5Kw-j4-K4l" secondAttribute="trailing" id="shB-9D-IDQ"/>
-                                                <constraint firstItem="5Kw-j4-K4l" firstAttribute="leading" secondItem="Jc4-MG-HPT" secondAttribute="leading" id="stE-vm-Qey"/>
+                                                <constraint firstAttribute="trailing" secondItem="ifl-Vl-MGu" secondAttribute="trailing" constant="5" id="1eq-tY-H5B"/>
+                                                <constraint firstItem="f7n-oy-9mi" firstAttribute="leading" secondItem="Jc4-MG-HPT" secondAttribute="leading" constant="5" id="C6b-ft-abK"/>
+                                                <constraint firstItem="f7n-oy-9mi" firstAttribute="centerY" secondItem="Jc4-MG-HPT" secondAttribute="centerY" id="H5d-vq-RUo"/>
+                                                <constraint firstItem="ifl-Vl-MGu" firstAttribute="leading" secondItem="J7H-6X-PIS" secondAttribute="trailing" constant="5" id="Nc3-tS-hko"/>
+                                                <constraint firstItem="ifl-Vl-MGu" firstAttribute="centerY" secondItem="Jc4-MG-HPT" secondAttribute="centerY" id="i2o-cB-KrX"/>
+                                                <constraint firstItem="J7H-6X-PIS" firstAttribute="centerY" secondItem="Jc4-MG-HPT" secondAttribute="centerY" id="kcr-rH-YSf"/>
+                                                <constraint firstItem="J7H-6X-PIS" firstAttribute="leading" secondItem="f7n-oy-9mi" secondAttribute="trailing" constant="5" id="rp7-ab-HMc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -237,14 +226,27 @@
                         <viewLayoutGuide key="safeArea" id="uM4-JT-p48"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="履歴" id="Hpk-Fd-fpP"/>
+                    <navigationItem key="navigationItem" title="履歴" id="Hpk-Fd-fpP">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="QDi-aW-JTG">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="PRY-Pc-tRC">
+                                <rect key="frame" x="283" y="4.5" width="111" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="すべて削除"/>
+                                <connections>
+                                    <action selector="deleteAll" destination="mLQ-na-1kF" eventType="touchUpInside" id="BoW-BZ-uWb"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="HistoryTableView" destination="DiL-CB-p10" id="boh-1U-lZw"/>
+                        <outlet property="allDeleteButton" destination="PRY-Pc-tRC" id="sxN-rv-PUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jER-d3-QaL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1605.7971014492755" y="132.58928571428572"/>
+            <point key="canvasLocation" x="1604.3478260869567" y="132.06521739130434"/>
         </scene>
         <!--Record View Controller-->
         <scene sceneID="Vt1-fy-qgT">

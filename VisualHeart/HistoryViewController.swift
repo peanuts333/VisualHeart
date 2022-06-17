@@ -10,6 +10,7 @@ import UIKit
 class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     @IBOutlet weak var HistoryTableView: UITableView!
+    @IBOutlet var allDeleteButton: UIButton!
     
     let ud = UserDefaults.standard
     
@@ -67,7 +68,6 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         let date = record[2]
         cell.historyTextLabel.text = text
         cell.historyDateLabel.text = date
-        print(record.count)
         //cell.historyDateLabel.text = record[2]
          
         // 🔍Switch文 if文の上位互換
@@ -90,7 +90,7 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         
   
     }
-    
+    //スワイプした行のみ削除
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             recordArray.remove(at: indexPath.row)
@@ -100,9 +100,53 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
         UserDefaults.standard.set(recordArray, forKey: "ARRAY" )
 
     }
+    //全削除
+//    func deleteAllTableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            recordArray.removeAll()
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//        }
+//
+//        UserDefaults.standard.set(recordArray, forKey: "ARRAY" )
+//
+//    }
     
+    @IBAction func deleteAll(){
+        if recordArray == []{
+            let emptyAlert = UIAlertController(
+                title:"エラー",
+                message:"履歴がありません。",
+                preferredStyle: .alert
+              
+            )
+            let emptyOk = UIAlertAction(title: "OK", style: .cancel) { (acrion) in
+                self.dismiss(animated: true, completion: nil)
+            }
+            emptyAlert.addAction(emptyOk)
+            present(emptyAlert, animated: true, completion: nil)
+        } else {
+        let alert = UIAlertController(
+            title:"確認",
+            message:"履歴をすべて削除します。本当によろしいですか。",
+            preferredStyle: .alert
+          
+        )
+        let ok = UIAlertAction(title: "すべて削除", style: .default) { (action) in
+            self.dismiss(animated: true, completion: nil)
+//            deleteAllTableView(_ tableView: UITableView, commit:editingStyle,: UITableViewCell.EditingStyle, forRowAt: IndexPath)
+            
+        }
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (acrion) in
+            self.dismiss(animated: true, completion: nil)
+        }
+            alert.addAction(cancel)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
+        }
+        print(recordArray)
+    }
     //*/
-
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

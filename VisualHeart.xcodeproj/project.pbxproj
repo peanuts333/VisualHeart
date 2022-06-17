@@ -110,14 +110,14 @@
 				CE0A99C92839D2440092EB30 /* AppDelegate.swift */,
 				CE0A99CB2839D2440092EB30 /* SceneDelegate.swift */,
 				CE0A99CD2839D2440092EB30 /* HistoryViewController.swift */,
-				CE3C685028474088007CFC81 /* HistoryTableViewController.swift */,
+				CE2A85D6283E63EA004615E0 /* HistoryTableViewCell.swift */,
+				CE2A85D4283E5FC4004615E0 /* MainViewController.swift */,
 				CE0A99CF2839D2440092EB30 /* Main.storyboard */,
+				CE3C685028474088007CFC81 /* HistoryTableViewController.swift */,
 				CE0A99D22839D2470092EB30 /* Assets.xcassets */,
 				CE0A99D42839D2470092EB30 /* LaunchScreen.storyboard */,
 				CE0A99D72839D2470092EB30 /* Info.plist */,
 				CE2A85D2283E5BB6004615E0 /* RecordViewController.swift */,
-				CE2A85D4283E5FC4004615E0 /* MainViewController.swift */,
-				CE2A85D6283E63EA004615E0 /* HistoryTableViewCell.swift */,
 			);
 			path = VisualHeart;
 			sourceTree = "<group>";
